@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 6</title>
+    <style type="text/css">
+        * {
+            font-family: Verdana;
+        }
+        h3 {
+            color: green;
+        }
+        fieldset {
+            width: 600px;
+            border: solid 2px red;
+            box-shadow: #CCC 3px 3px 3px;
+        }
+        label {
+            float: left;
+            width: 150px;
+            text-align: right;
+            color: blue;
+            font-weight: bold;
+            font-size: 0.8em;
+            margin-right: 10px;
+        }
+        .hint {
+            display: block;
+            color: red;
+            font-weight: normal;
+            font-size: 0.7em;
+            margin-right: 5px;
+        }
+        input[type="text"] , input[type="email"] , textarea {
+            border: solid 1px gray;
+            height: 20px;
+            padding: 5px 15px;
+        }
+        input[type="text"]:focus , input[type="email"]:focus , textarea:focus {
+            outline: none;
+            border: solid 1px blue;
+        }
+        input[type="submit"] , input[type="reset"] {
+            background-color: orange;
+            color: white;
+            width: 100px;
+            border: solid 1px orange;
+            padding: 10px 20px;
+        }
+        input[type="submit"]:hover , input[type="reset"]:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>CONTACT US</h3>
+    <p style=" font-style: italic; ">Please fill up the information below.</p>
+    <form name="feedbackfrm">
+	<fieldset>
+            <label>Name <br><span class="hint">Your full name</span></label>
+            <input type="text" name="guest_name" />
+            <br><br><label>Email Address <br><span class="hint">Your current email address</span></label>
+            <input type="email" name="guest_email" />	
+            <br><br><label>Feedback <br><span class="hint">Key-in your feedback</span></label>
+            <textarea name="guest_feedback" rows="3" cols="40"></textarea>	
+            <br><br><input type="submit" name="submitbtn" value="Send" />
+            <input type="reset" name="resetbtn" value="Cancel" />
+	</fieldset>
+    </form>
+    <p style=" color: #BBB; font-size: 0.7em; ">All information will be treated as private and confidential</p>
+</body>
+</html>

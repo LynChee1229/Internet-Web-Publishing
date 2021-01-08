@@ -1,0 +1,13 @@
+@font-face {font-family: GenghisKhanframed-MedObliq; src:url("font/GenghisKhanframed-MedObliq.ttf"); }
+@font-face {font-family: The Blacklist; src:url("font/The Blacklist.ttf"); }
+body {background: url("image/background.jpg"); 
+      background-size: 200px 200px;}    /*first value: width    second-value: height*/
+h1 {font-family: GenghisKhanframed-MedObliq; font-size: 2em; color: #009922;
+    letter-spacing: 5px; text-align: center; }
+h4 {font-family: The Blacklist; font-size: 2em; word-spacing: 5px;
+    background-color: yellowgreen; color: white; text-shadow: 2px 2px #009922; }
+p {font-style: italic; }
+.labels {font-weight: bold; color: blue; }
+#old-price {text-decoration: line-through; font-style: normal;}
+#new-price {color: red; text-decoration: underline; font-style: normal;}
+

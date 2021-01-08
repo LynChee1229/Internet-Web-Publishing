@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 6</title>
+    <style>
+        #login-title {
+            height: 40px;
+            background-color: #DDD;
+            background-image: url("image/padlock.png");
+            background-repeat: no-repeat;
+            background-position: 7px 7px;
+            background-size: 24px 24px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px; 
+        }
+        #login-form {
+            padding: 10px;
+            text-align: center;
+        }
+        #login-form input[type="email"] , input[type="password"] {
+            width: 250px;   
+            height: 25px;
+            border: solid 1px #DDD;
+            border-radius: 5px;
+            padding: 5px 10px 5px 40px;
+        }
+        input[type="email"] {
+            background-image: url("image/email.png");
+            background-repeat: no-repeat;
+            background-position: 10px 10px;
+        }
+        input[type="password"] {
+            background-image: url("image/key.png");
+            background-repeat: no-repeat;
+            background-position: 10px 10px;
+        }
+        #login-form input[type="submit"] {
+            background-color: #0066FF;
+            color: white;
+            font-weight: bold;
+            width: 300px;
+            padding: 10px;
+            border: none;
+        }
+        #login-form input[type="submit"]:hover {
+            background-color: #2C61B7;
+            cursor: pointer;
+        }
+        #login-form p a {
+            text-decoration: none;
+            font-family: Arial Narrow;
+            font-size: 0.8em;
+            text-align: center;
+        }
+        #login-form p a:hover {
+            font-style: italic;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div style=" width: 400px; 
+                 padding: 0px; 
+                 margin: 0 auto; 
+                 border: solid 1px #DDD;
+                 border-radius: 10px; ">
+	<div id="login-title">
+            <h4 style=" color: blue;
+                        font-family: Arial;
+                        margin: 0px;
+                        padding: 12px 40px;">
+                Login Panel</h4>
+	</div>
+	<div id="login-form">
+		<form name="loginfrm">
+			<p><input type="email" name="user_email" /></p>
+			<p><input type="password" name="user_password" /></p>
+			<p><input type="submit" name="loginbtn" value="LOGIN" /></p>
+		</form>
+		<p><a href="#">Forgot your password?</a></p>
+	</div>
+    </div>
+</body>
+</html>

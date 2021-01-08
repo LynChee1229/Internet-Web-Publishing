@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Add New Product Details</title></head>
+    <body>
+        <form method="POST" name="formNewProduct">
+            <fieldset style="width: 420px;" name="fsNewProduct">
+                <legend>Product Details</legend>
+                <p><label>Product Name : </label> <br/><input type="text" size="50" name="proName" required/></p>
+                <p><label>Product Code : </label> <input type="text" size="22" name="proCode"/></p>
+                <p><label>Available Sizes : </label>
+                    <input type="checkbox" value="Small" name="size"/> Small
+                    <input type="checkbox" value="Medium" name="size"/> Medium
+                    <input type="checkbox" value="Large" name="size"/> Large
+                </p>
+                <p><label>Colour : </label> <input type="color" value="#123ABC" name="proColor"/></p>
+                <p><label>Stock : </label> <input type="number" min="10" max="120" name="proStock"/></p>
+                <p><label>Re-order Level : </label> <input type="range" min="20" max="100" name="level"/></p>
+                <p><label>Product Image : </label> <input type="file" accept="image/*" name="proImage" multiple/></p>
+            </fieldset>
+            <p><input type="submit" value="Save Product" name="btnSubmit"/></p>
+        </form>
+    </body>
+</html>
