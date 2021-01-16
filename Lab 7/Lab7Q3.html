@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Lab7 Q3</title></head>
+    <body>
+        <script>
+            var price = 0, num = 0;
+            var choice = parseInt( prompt("Please enter your choice :\n" +
+            "1. Nescafe\n2. Pizza\n3. Yogurt") );
+            if(choice<=0 || choice>3){
+                alert("Invalid Choice. Program will be terminated.");
+                throw new Error();
+            }
+            else {
+                switch(choice) {
+                    case 1 :    num = parseInt(prompt("Please enter the quantity of Nescafe (cans) :"));
+                                price = 2.30;
+                                break;
+                    case 2 :    num = parseInt(prompt("Please enter the quantity of Pizza (pieces) :"));
+                                price = 7.90;
+                                break;
+                    case 3 :    num = parseInt(prompt("Please enter the quantity of Yogurt (cups) :"));
+                                price = 1.85;
+                                break;
+                }
+                var total = num * price;
+                document.write("Bill = RM " + total.toFixed(2));
+            }
+        </script>
+    </body>
+</html>

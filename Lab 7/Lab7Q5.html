@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Lab7 Q5</title></head>
+    <body>
+        <script>
+            var weightList = [] , rateList = [], rate;
+            var ans = confirm("Do you have any material to recycle?");
+            while(ans==true) {
+                var weight = parseFloat(prompt( "Enter the weight of your materials " +
+                                                "(kg) : "));
+                if(weight<10)   rate = 0.15;
+                else if(weight>=10 && weight<20)    rate = 0.20;
+                else if(weight>=20 && weight<30)    rate = 0.25
+                else    rate = 0.30;
+                weightList.push(weight);
+                rateList.push(rate);
+                ans = confirm("Do you wish to continue?");
+            }
+            var payout = 0;
+            for(var x=0; x<weightList.length; x++) {
+                document.write( "<br>Customer : " + (x+1) + 
+                                "<br>Weight : " + weightList[x]+" kg" +
+                                "<br>Rate : RM " + rateList[x].toFixed(2) +
+                                "<br>Payout : RM " + (weightList[x]*rateList[x]).toFixed(2) 
+                                + "<br>");
+                payout += weightList[x]*rateList[x];
+            }
+            document.write( "<br>Total Customer : " + weightList.length + 
+                            "<br>Overall Payout : RM " + payout.toFixed(2));
+        </script>
+    </body>
+</html>

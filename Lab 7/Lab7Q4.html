@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Lab7 Q4</title></head>
+    <body>
+        <script>
+            var courseName, price, discountRate, gift;
+            var choice = prompt("\nCOURSES OFFERED\nA. Windows Azure                   (RM 1250.00 per pax)\n" + 
+            "B. JQuery for Beginners           (RM 990.00 per pax)\nC. Advanced PHP and MySQL (RM 2150.00 per pax)\n\n" + 
+            "Enter the COURSE CODE : ");
+            choice = choice.toUpperCase();
+            if(choice!='A' && choice!='B' && choice!='C'){
+                alert("You have entered an INVALID Course Code. Program will be terminated...");
+                throw new Error();
+            }
+            var num = parseInt(prompt("Enter the number of participants : "));
+            switch(choice) {
+                case 'A' :  courseName = "Windows Azure";
+                            price = 1250.00;
+                case 'B' :  courseName = "JQuery for Beginners";
+                            price = 990.00;
+                case 'C' :  courseName = "Advanced PHP and MySQL";
+                            price = 2150.00;
+            }
+            if(num<=10) {
+                discountRate = 0.00;
+                gift = "None";
+            }
+            else if(num>=11 && num<=20) {
+                discountRate = 0.10;
+                gift = "Coffee Mug";
+            }
+            else {
+                discountRate = 0.15;
+                gift = "Kingston 16GB Thumbdrive";
+            }
+            var discount = price*discountRate;
+            var total = (price*num) - (discount*num);
+            document.write( "<br/>Course name    : " + courseName + 
+                            "<br/>Course price   : RM " + price.toFixed(2) + 
+                            "<br/>Participants   : " + num + 
+                            "<br/>Discount       : RM " + discount.toFixed(2) + " (" + (discountRate*100).toFixed(2) + "%)" + 
+                            "<br/>Gift           : " + gift + 
+                            "<br/>Total payment  : RM " + total.toFixed(2));
+        </script>
+    </body>
+</html>

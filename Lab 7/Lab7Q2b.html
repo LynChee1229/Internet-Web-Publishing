@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Lab7 Q2 B</title></head>
+    <body>
+        <script>
+            var areaList = [];
+            do{
+                var base1 = parseInt( prompt("Please enter the value of base 1 : ") );
+                var base2 = parseInt( prompt("Please enter the value of base 2 : ") );
+                var height = parseInt( prompt("Please enter the value of height : ") );
+                var area = 0.5*height*(base1+base2);
+
+                areaList.push(area);
+                
+                var r = confirm("Do you want to continue?");
+            }while(r!=false);
+            
+            var total = 0;
+            for(var i=0; i<areaList.length; i++) {
+                document.writeln("The area of the trapezoid " + (i+1) + " is " + areaList[i].toFixed(2) + " cm&#178.<br/>");
+                total += areaList[i];
+            }
+            document.write("<br/>The total area for " + areaList.length + " trapezoid is " + total.toFixed(2) + " cm&#178.");
+        </script>
+    </body>
+</html>
