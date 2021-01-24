@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flower Rose Lily Tulip</title>
+
+<script type="text/javascript">
+	function get_data()
+	{
+		// var f = document.getElementsByName("flower");
+		// for(var x=0; x<f.length; x++) {
+		// 	if(f[x].checked) flower = f[x].value;
+		// }
+		var flower = document.frm.flower.value;
+		// var qty = parseInt(document.getElementsByName("qty")[0].value);
+		var qty = document.frm.qty.value;
+		var deco = document.frm.deco.value;
+		var fprice = get_flower_price(flower);
+		var dprice = get_deco_price(deco);
+		var total = (fprice*qty) + dprice;
+		document.getElementById("result").innerHTML = 	"<br>Flower : " + flower + " ($" + fprice.toFixed(2) + ")" +
+														"<br>Decoration : " + deco + " ($" + dprice.toFixed(2) + ")" +
+														"<br>Stalks : " + qty +
+														"<br>Total : $ " + total.toFixed(2); 
+	}
+	function get_flower_price(flower)
+	{
+		var fprice;
+		switch(flower){
+			case "Rose" : 	fprice = 2.30;	break;
+			case "Lily" : 	fprice = 3.30;	break;
+			case "Tulip" : 	fprice = 1.30;	break;
+		}
+		return fprice;
+	}
+	function get_deco_price(deco)
+	{
+		var dprice;
+		if(deco == "Basket")	dprice = 10.00;
+		else if(deco == "Bouquet")	dprice = 20.00;
+		return dprice;
+	}
+</script>
+</head>
+
+<body>
+	<form name="frm">
+		<p>Flower
+			<input type = "radio" name="flower" value="Rose">Rose
+			<input type = "radio" name="flower" value="Lily">Lily
+			<input type = "radio" name="flower" value="Tulip">Tulip
+		</p>
+		<p>Decoration
+			<select name="deco">
+				<option value="Basket">Basket</option>
+				<option value="Bouquet">Bouquet</option>
+			</select>
+		</p>
+		<p>Stalks : <input type = "number" name="qty" min="1" max="100">
+		<p><input type = "button" name="btn" value="KIRA" onclick="get_data()">
+	</form>
+	<br><p id="result"></p>
+</body>
+</html>

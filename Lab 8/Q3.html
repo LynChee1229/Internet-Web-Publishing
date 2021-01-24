@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script type="text/javascript">
+	function input()
+	{
+		var hour;
+		var receiver = document.getElementsByName("receiver")[0].value;
+		var msg = document.getElementsByName("message")[0].value;
+		var peakHour = document.getElementsByName("hour");
+		for(var x=0; x<peakHour.length; x++){
+			if(peakHour[x].checked) hour = peakHour[x].value;
+		}
+		var rate = get_rate(hour);
+		var payment = (msg.length/10) * rate;
+		display_bill(receiver,msg,hour,rate,payment);
+	}
+	function get_rate(hour)
+	{
+		var rate;
+		switch(hour){
+			case "Yes" : 	rate = 0.03;	break;
+			case "No"  :	rate = 0.01;	break;
+		}
+		return rate;
+	}
+	function display_bill(receiver,msg,hour,rate,payment)
+	{
+		// document.write( "To : " + receiver + 
+		// 				"<br>Your message : " + msg + 
+		// 				"<br>Peak Hour : " + hour + 
+		// 				"<br>Rate : RM " + rate.toFixed(2) + 
+		// 				"<br>Payment : RM " + payment.toFixed(2));
+		document.getElementById("result").innerHTML = 	"<br>To : " + receiver + 
+														"<br>Your message : " + msg + 
+														"<br>Peak Hour : " + hour + 
+														"<br>Rate : RM " + rate.toFixed(2) + 
+														"<br>Payment : RM " + payment.toFixed(2);
+	}
+</script>
+</head>
+
+<body>
+	<form name="bill">
+		<p>To : <input type="text" name="receiver" /></p>
+		<p>Message :
+		<br> <textarea name="message" rows="3" cols="50"></textarea></p>
+		<p>Peak Hour : 
+			<input type="radio" name="hour" value="Yes" /> Yes
+			<input type="radio" name="hour" value="No" /> No
+		</p>
+		<p><input type="button" name="submitbtn" value="Get Bill" onclick="input()" /></p>
+	</form>
+	<br><p id="result"></p>
+</body>
+</html>

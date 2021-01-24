@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script type="text/javascript">
+	function input()
+	{
+		var code = document.ticketfrm.mov_code.value;
+		var adult = document.ticketfrm.adult_qty.value;
+		var child = document.ticketfrm.child_qty.value;
+		var movie, ticket;
+		switch(code){
+			case "M1" : 	movie = "Jumanji";			ticket = 12.90;	break;
+			case "M2" : 	movie = "Coco";				ticket = 10.50;	break;
+			case "M3" : 	movie = "Blade Runner";		ticket = 9.30;	break;
+			case "M4" : 	movie = "The Foreigner";	ticket = 12.80;	break;	}
+		var add_on_code = document.ticketfrm.add_on_code;
+		var addOn = [] , itemName, itemPrice, total=0;
+		for(var x=0; x<add_on_code.length; x++){
+			if(add_on_code[x].checked)
+				addOn.push(add_on_code[x].value);
+		}
+		for(var y=0; y<addOn.length; y++){
+			if(addOn[y]=="A1"){
+				itemName = "Popcorn";
+				itemPrice = 7.90;
+			}
+			else if(addOn[y]=="A2"){
+				itemName = "Nachos";
+				itemPrice = 5.50;
+			}
+			else if(addOn[y]=="A3"){
+				itemName = "Soda";
+				itemPrice = 3.50;
+			}
+			total += itemPrice;
+			document.getElementById("ttl").innerHTML =	"<br>Add-On Details : ";
+			document.getElementById("detail").innerHTML +=	"<br>-- " + itemName + 
+			" (RM " + itemPrice.toFixed(2) + ")";
+		}
+		var bill = (adult*ticket)+(child*ticket*0.70)+ total;
+		document.getElementById("part1").innerHTML = 	
+			"<br>Movie Title : " + movie + " (RM " + ticket.toFixed(2) + ")" + 
+			"<br>Adult Total : RM " + (adult*ticket).toFixed(2) + " (" + adult + " x RM " + 
+				ticket.toFixed(2) + ")" + 
+			"<br>Child Total : RM " + (child*ticket*0.70).toFixed(2) + " (" + child + " x RM " + 
+				(ticket*0.70).toFixed(2) + ")" +
+			"<br>Add-On Total : RM " + total.toFixed(2);
+		document.getElementById("bill").innerHTML = "<br><br>Total Bill : RM " + bill.toFixed(2);
+	}
+</script>
+</head>
+
+<body>
+	<h3>Book A Movie Ticket</h3>
+	<p>Choose your movie and add-on</p>
+	<form name="ticketfrm">
+		<p>Movie Title:
+			<select name="mov_code">
+				<option value="M1">Jumanji (RM 12.90)</option>
+				<option value="M2">Coco (RM 10.50)</option>
+				<option value="M3">Blade Runner (RM 9.30)</option>
+				<option value="M4">The Foreigner (RM 12.80)</option>	
+			</select>
+		<p>Adult : <input type="number" name="adult_qty" min="1" max="10" /></p>
+		<p>Child : <input type="number" name="child_qty" min="0" max="10" /></p>
+		<p>Add-Ons:
+			<input type="checkbox" name="add_on_code" value="A1"/>Popcorn (RM 7.90)
+			<input type="checkbox" name="add_on_code" value="A2"/>Nachos (RM 5.50)
+			<input type="checkbox" name="add_on_code" value="A3"/>Soda (RM 3.50)
+		</p>
+		<p><input type="button" name="buybtn" value="Buy Now" onclick="input();" />
+		</p>
+	</form>
+	<br><p>
+		<span id="part1"></span>
+		<span id="ttl"></span>
+		<span id="detail"></span>
+		<span id="bill"></span>
+	</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script type="text/javascript">
+	function timetable()
+	{
+		var num1 = document.multiplicationfrm.num1.value;
+		var num2 = document.multiplicationfrm.num2.value;
+		var result = num1*num2;
+		alert(num1 + " x " + num2 + " = " + result);
+	}
+</script>
+</head>
+
+<body>
+	<h3>Multiplication Table</h3>
+	<p>Choose your numbers</p>
+	<form name="multiplicationfrm">
+		<p>
+			<input type="range" min="1" max="12" value="1" name="num1">
+		</p>
+		<p> 
+			<input type="range" min="1" max="12" value="1" name="num2">
+		</p>
+		<p>
+			<input type="button" name="calcbtn" value="Get Answer" onclick="timetable();" />
+		</p>
+	</form>
+</body>
+</html>

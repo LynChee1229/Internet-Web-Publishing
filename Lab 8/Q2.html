@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script type="text/javascript">
+	function order_data()
+	{
+		// var clr, dPrice;
+		// var cusName = document.getElementsByName("nametxt")[0].value;
+		// var colour = document.getElementsByName("mug_colour");
+		// for(var i=0; i<colour.length; i++){
+		// 	if(colour[i].checked) clr = colour[i].value;
+		// }
+		// var qty = parseInt(document.getElementsByName("qtytxt")[0].value);
+		// var delivery = document.getElementsByName("mug_delivery");
+		// var price = get_price(clr);
+		// var bill = price*qty;
+		// if(delivery[0].checked){
+		// 	delivery="Yes";
+		// 	dPrice = 7.00;
+		// }
+		// else{
+		// 	delivery="No";
+		// 	dPrice = 0.00;
+		// }
+		// print_bill(cusName,price,qty,dPrice,delivery,bill);
+		var cusName = document.orderfrm.nametxt.value;
+		var colour = document.orderfrm.mug_colour.value;
+		var qty = document.orderfrm.qtytxt.value;
+		var delivery = "No", dPrice = 0.00;
+		if(document.orderfrm.mug_delivery.checked){
+			delivery = document.orderfrm.mug_delivery.value;
+			dPrice = 7.00;
+		}
+		var price = get_price(colour);
+		var bill = (price*qty);
+		print_bill(cusName,price,qty,dPrice,delivery,bill);
+	}
+	function get_price(colour)
+	{
+		var p;
+		switch(colour){
+			case "1" :	p = 3.50;	break;
+			case "2" : 	p = 5.90;	break;
+			case "3" : 	p = 7.50;	break;
+		}
+		return p;
+	}
+	function print_bill(cusName,price,qty,dPrice,delivery,bill)
+	{
+		// document.write(	"Customer Name : " + cusName + 
+		// 				"<br>Mug Price : RM " + price.toFixed(2) + 
+		// 				"<br>Quantity : " + qty + 
+		// 				"<br>Delivery : RM " + dPrice.toFixed(2) + " (" + delivery + ")" +
+		// 				"<br>Total : RM " + bill.toFixed(2));
+		document.getElementById("result").innerHTML = 	"<br>Customer Name : " + cusName + 
+														"<br>Mug Price : RM " + price.toFixed(2) + 
+														"<br>Quantity : " + qty + 
+														"<br>Delivery : RM " + dPrice.toFixed(2) + " (" + delivery + ")" +
+														"<br>Total : RM " + bill.toFixed(2);
+	}
+</script>
+</head>
+
+<body>
+	<h3>Custom Mug</h3>
+	<p>Make a custom order today!</p>
+	<form name="orderfrm">
+		<p>Name : <input type="text" name="nametxt" ></p>
+		<p>Colour
+			<input type="radio" name="mug_colour" value="1">Royal Blue (RM 3.50)
+			<input type="radio" name="mug_colour" value="2">Red and Orange (RM 5.90)
+			<input type="radio" name="mug_colour" value="3">Gold (RM 7.50) 
+		</p>
+		<p>Quantity : <input type="text" name="qtytxt" > </p>
+		<p>Delivery : <input type="checkbox" name="mug_delivery" value="Yes">Check if delivery is required </p>
+		<p><input type="button" name="sendbtn" value="Send Order" onclick="order_data();" /> </p>
+	</form>
+	<br><p id="result"></p>
+</body>
+</html>
